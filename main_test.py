@@ -78,7 +78,7 @@ class MainWindow(QMainWindow):
         if is_last:
             # Ici : build project + POST n8n
             project = self.director._builder.get_project()  # à adapter selon ton implémentation
-            print("SUBMIT PAYLOAD:", project.__dict__)  # TODO: post_to_n8n(project)
+            print("SUBMIT PAYLOAD:", project.describe())  # TODO: post_to_n8n(project)
             return
 
         self.stack.setCurrentIndex(i + 1)
