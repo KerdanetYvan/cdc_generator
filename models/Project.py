@@ -174,3 +174,20 @@ class Project:
                 print(f"  {i}. {risk}")
         
         print("\n" + "="*80 + "\n")
+    
+    def to_dict(self):
+        """Convertit l'objet Project en dictionnaire pour la sérialisation JSON"""
+        return {
+            "meta": self.meta,
+            "context": self.context,
+            "objectives": self.objectives,
+            "targets": self.targets,
+            "scope": self.scope,
+            "deliverables": self.deliverables,
+            "constraints": self.constraints,
+            "timeline": self.timeline,
+            "governance": self.governance,
+            "budget": self.budget,
+            "acceptance": self.acceptance,
+            "risks": self.risks
+        }

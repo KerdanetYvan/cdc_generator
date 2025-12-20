@@ -198,5 +198,13 @@ class ConcreteProjectBuilder(ProjectBuilder):
     def set_risks(self, risks: list):
         self.project.risks = risks
     
+    def get_project(self) -> Project:
+        """Retourne l'instance actuelle du projet en cours de construction.
+
+        Returns:
+            Project: L'objet Project en cours de construction.
+        """
+        return self.project
+    
     def build(self) -> Project:
         return self.project
