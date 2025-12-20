@@ -53,6 +53,7 @@ if __name__ == "__main__":
         "created_at": datetime.datetime.now().isoformat()
     })
     print(metaProject, "meta constructed successfully.")
+    metaProject.describe()
     print("\n-------------------------------\n")
     
     # Collect context information about the project (2nd step)
@@ -67,12 +68,13 @@ if __name__ == "__main__":
         stakes.append(stake)
         print("Ajoutez un autre enjeu ou tapez 'fin' pour terminer la liste.")
         stake = input()
-    contextProject = director.construct_context(metaProject,{
+    contextProject = director.construct_context({
         "trigger": trigger,
         "current_state": current_state,
         "stakes": stakes
     })
     print(contextProject, "context added successfully.")
+    contextProject.describe()
     print("\n-------------------------------\n")
     
     # Collect objectives information about the project (3rd step)
@@ -84,8 +86,9 @@ if __name__ == "__main__":
         objectives.append(objective)
         print("Ajoutez un autre objectif ou tapez 'fin' pour terminer la liste.")
         objective = input()
-    objectivesProject = director.construct_objectives(contextProject, objectives)
+    objectivesProject = director.construct_objectives(objectives)
     print(objectivesProject, "objectives added successfully.")
+    objectivesProject.describe()
     print("\n-------------------------------\n")
     
     # Collect targets information about the project (4th step)
@@ -105,12 +108,13 @@ if __name__ == "__main__":
         print("Ajoutez une autre cible secondaire ou tapez 'fin' pour terminer la liste.")
         secondary_target = input()
     journey_target = input("Y a-t-il une cible de parcours spécifique pour ce projet ? Si oui, laquelle ? ")
-    targetsProject = director.construct_targets(objectivesProject, {
+    targetsProject = director.construct_targets({
         "primary": primary_targets,
         "secondary": secondary_targets,
         "journey": journey_target
     })
     print(targetsProject, "targets added successfully.")
+    targetsProject.describe()
     print("\n-------------------------------\n")
     
     # Collect scope information about the project (5th step)
@@ -130,12 +134,13 @@ if __name__ == "__main__":
         print("Ajoutez une autre exclusion ou tapez 'fin' pour terminer la liste.")
         exclusion = input()
     change_rule = input("Y a-t-il une règle de changement spécifique pour ce projet ? Si oui, laquelle ? ")
-    scopeProject = director.construct_scope(targetsProject, {
+    scopeProject = director.construct_scope({
         "in": inclusions,
         "out": exclusions,
         "changeRule": change_rule
     })
     print(scopeProject, "scope added successfully.")
+    scopeProject.describe()
     print("\n-------------------------------\n")
     
     # Collect deliverables information about the project (6th step)
@@ -147,8 +152,9 @@ if __name__ == "__main__":
         deliverables.append(deliverable)
         print("Ajoutez un autre livrable ou tapez 'fin' pour terminer la liste.")
         deliverable = input()
-    deliverablesProject = director.construct_deliverables(scopeProject, deliverables)
+    deliverablesProject = director.construct_deliverables(deliverables)
     print(deliverablesProject, "deliverables added successfully.")
+    deliverablesProject.describe()
     print("\n-------------------------------\n")
     
     
