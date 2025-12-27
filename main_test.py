@@ -4,6 +4,7 @@ from PySide6.QtWidgets import (
 )
 from pages.meta_page import MetaPage
 from pages.context_page import ContextPage
+from pages.objectives_page import ObjectivesPage
 from models.projectBuilderDirector import ProjectBuilderDirector
 from models.projectBuilder import ConcreteProjectBuilder
 
@@ -20,6 +21,7 @@ class MainWindow(QMainWindow):
         self.pages = [
             MetaPage(),
             ContextPage(),
+            ObjectivesPage(),
         ]
         for page in self.pages:
             self.stack.addWidget(page)
@@ -67,8 +69,8 @@ class MainWindow(QMainWindow):
         elif i == 1:
             # Context page
             self.director.construct_context(data)
-        # elif i == 2:
-        #     self.director.construct_objectives(data)
+        elif i == 2:
+            self.director.construct_objectives(data)
         # ...
         else:
             pass
