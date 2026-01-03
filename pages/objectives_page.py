@@ -57,9 +57,7 @@ class ObjectivesPage(QWidget):
         """
         Returns the list of objectives entered by the user.
         """
-        return [input_.text().strip() for input_ in self.objective_inputs if input_.text().strip()]
+        return [input_.text().strip() for input_ in self.objective_inputs]
     
     def get_data(self) -> dict:
-        return {
-            "objectives": self.get_objectives()
-        }
+        return self.get_objectives()

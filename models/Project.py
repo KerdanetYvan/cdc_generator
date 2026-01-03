@@ -83,8 +83,8 @@ class Project:
         if self.objectives:
             print("\n🎯 OBJECTIFS")
             print("-" * 40)
-            for i, obj in enumerate(self.objectives, 1):
-                print(f"  {i}. {obj}")
+            for objective in self.objectives:
+                print(f"  • {objective}")
         
         # CIBLES
         print("\n👥 CIBLES")
