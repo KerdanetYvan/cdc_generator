@@ -150,6 +150,16 @@ class ProjectBuilder(ABC):
         pass
     
     @abstractmethod
+    def set_notes(self, notes: str):
+        """method to set additional notes for the project
+
+        Args:
+            notes (str): Additional notes, remarks or supplementary information
+                        that will enrich the specifications document.
+        """
+        pass
+    
+    @abstractmethod
     def build(self) -> Project:
         """method to build and return the final Project object.
 
@@ -197,6 +207,9 @@ class ConcreteProjectBuilder(ProjectBuilder):
     
     def set_risks(self, risks: list):
         self.project.risks = risks
+    
+    def set_notes(self, notes: str):
+        self.project.notes = notes
     
     def get_project(self) -> Project:
         """Retourne l'instance actuelle du projet en cours de construction.

@@ -56,6 +56,8 @@ class Project:
         }
 
         self.risks = []
+        
+        self.notes = ""
 
     def describe(self):
         """Affiche une description complète et formatée du projet"""
@@ -173,6 +175,12 @@ class Project:
             for i, risk in enumerate(self.risks, 1):
                 print(f"  {i}. {risk}")
         
+        # NOTES SUPPLÉMENTAIRES
+        if self.notes:
+            print("\n📝 NOTES SUPPLÉMENTAIRES")
+            print("-" * 40)
+            print(f"  {self.notes}")
+        
         print("\n" + "="*80 + "\n")
     
     def to_dict(self):
@@ -189,5 +197,6 @@ class Project:
             "governance": self.governance,
             "budget": self.budget,
             "acceptance": self.acceptance,
-            "risks": self.risks
+            "risks": self.risks,
+            "notes": self.notes
         }

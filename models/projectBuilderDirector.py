@@ -55,4 +55,8 @@ class ProjectBuilderDirector:
         self._builder.set_risks(risks)
         return self._builder.build()
     
+    def construct_notes(self, notes: str):
+        self._builder.set_notes(notes)
+        return self._builder.build()
+    
     
